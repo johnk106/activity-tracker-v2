@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block head_content %} <link rel="stylesheet"
+href="{{ url_for('static', filename='./css/edit.css' "" ) }}"> {% endblock %} {%
+block title %} Edit {% endblock %} 
+
+{% block content %}
+  <div>
+    <h1 class="first_h">EDIT BOOK DETAILS HERE:</h1>
+  </div>
+  <div class="wrapper_1">
+    <form action="/books/edit/{{book.id}}" method="POST" enctype="multipart/form-data">
+      <label for="bname">BOOKNAME:</label><br />
+      <input type="text" id="bname" name="bname" value="{{book.book_name}}"/>
+      <br/>
+
+      <label for="author">AUTHOR:</label><br />
+      <input type="text" id="author" name="author" value="{{book.author}}"/>
+      <br/>
+
+      <label for="theme">THEME:</label><br />
+      <input type="text" id="theme" name="theme" value="{{book.theme}}"/>
+      <br/>
+
+      <label for="year">PUBLICATION YEAR:</label><br />
+      <input type="text" id="year" name="year" value="{{book.pub_year}}" /><br />
+
+      <label for="read">Not Read</label>
+      <input type="radio" name="read" id="read" value="False"" />
+      <label for="read">Read</label>
+      <input type="radio" name="read" id="read" value="True" />
+
+      <input id="btn" type="submit" value="SAVE CHANGES" style="display: block" />
+    </form>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block head_content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='./css/index.css' "" ) }}">
+{% endblock %}
+
+{% block title%} Home {% endblock %}
+
+{% block content %}
+  <div class="row1">
+    <h1 class="heading">BOOK RECORD</h1>
+
+      <div class="form">
+          <form action="" method="POST"  onsubmit="return handler();">
+            <label for="bname">Bookname:</label><br/>
+            <input type="text" id="bname" name="bname"><br/>
+
+            <label for="author">author:</label><br/>
+            <input type="text" id="author" name="author"><br/>
+
+            <label for="theme">theme:</label><br/>
+            <input type="text" id="theme" name="theme"><br/>
+
+            <label for="year">publication year:</label><br/>
+            <input type="text" id="year" name="year"><br/>
+
+            <input type="radio" id="read" name="read" value="True">
+            <label for="read">Read</label>
+
+            <input type="radio" id="read" name="read" value="False">
+            <label for="not-read">Not read</label><br/>
+
+            <input type="submit" value="submit" id="btn" onclick="return handler()">
+
+            </form>
+      </div>
+  </div>
+
+  <script>
+    w = document.getElementById("bname"); 
+    x = document.getElementById("author"); 
+    y = document.getElementById("theme"); 
+    z = document.getElementById("year"); 
+
+    function handler(){
+      if(w.value.trim()== "" && x.value.trim()== ""  &&  y.value.trim()== "" && z.value.trim()== ""    ){
+          alert("ALL ENTITIES MUST BE FILLED");
+          return false;
+      }
+  
+    }
+  </script>
+{% endblock %}

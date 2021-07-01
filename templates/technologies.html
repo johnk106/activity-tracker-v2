@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+{% block head_content %}
+   
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/books.css' "" ) }}">
+{% endblock %} 
+{% block title%}Tech Books {% endblock %} 
+{% block content %} 
+    {% if books %} 
+        {% for book in books %}
+            <div id="row1">
+                <p>BOOK NAME: {{ book.book_name }}</p>
+                <p>AUTHOR: {{ book.author }}</p>
+                <p>THEME: {{ book.theme }}</p>
+                <p>PUBLICATION YEAR: {{ book.pub_year }}</p>
+                <p class="boolean">Read: {{ book.is_read }}</p>
+                <p>Date added: {{ book.date_added }}</p>
+                <button class="btn"><a href="/books/edit/{{book.id}}">Edit</a></button>
+                <button class="btn"><a href="/books/delete/{{book.id }}">Delete</a></button>
+            </div>
+        {% endfor %} 
+    {% endif %} 
+{% endblock %}
